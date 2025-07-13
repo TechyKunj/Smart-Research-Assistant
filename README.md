@@ -134,3 +134,11 @@ MIT License
 - [Streamlit](https://streamlit.io/)
 
 Made with ❤️ by [@TechyKunj](https://github.com/TechyKunj)
+
+---
+
+## 🎬 Demo Video
+
+Watch the full walkthrough here:  
+📺 [Smart Research Assistant - YouTube Demo](https://youtu.be/kCn1rpg3iHE)
+
