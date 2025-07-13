@@ -1,0 +1,33 @@
+# Core dependencies
+fastapi
+streamlit
+uvicorn
+python-multipart
+# Google Gemini API
+google-generativeai
+# LangChain
+langchain
+langchain-google-genai
+langchain-community
+# Document processing
+PyPDF2
+python-docx
+pypdf
+# Text processing
+nltk
+spacy
+# Data handling
+pandas
+numpy
+# HTTP requests
+requests
+httpx
+# Environment variables
+python-dotenv
+# Styling
+plotly
+streamlit-option-menu
+streamlit-lottie
+# Additional utilities
+pydantic
+typing-extensions
