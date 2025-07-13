@@ -1,124 +1,123 @@
-# 🤖 Smart Research Assistant
+# 🔬 Smart Research Assistant
 
-**Smart Research Assistant** is an AI-powered document analysis tool that enables intelligent comprehension, contextual Q&A, and knowledge testing using Google Gemini AI and LangChain.
+A sophisticated AI-powered document analysis tool that enables intelligent comprehension, contextual Q&A, and knowledge testing using Google Gemini AI and LangChain.
 
 ---
 
 ## 🌟 Features
 
 ### Core Functionality
+- 📄 Document Upload (PDF, TXT up to 10MB)
+- 🤖 Auto-Summary (~150 words)
+- 💬 Ask Anything (Gemini-powered contextual Q&A)
+- 🎯 Challenge Mode (Comprehension questions)
+- 📚 Reference Citations (Supports answers with source text)
 
-- 📄 **Document Upload**: PDF and TXT files up to 10MB
-- 🤖 **Auto-Summary**: Generates concise 150-word summaries
-- 💬 **Ask Anything**: Question answering using Gemini with document context
-- 🎯 **Challenge Mode**: Comprehension questions with evaluation
-- 📚 **Reference Citations**: Includes document excerpts as evidence
-
-### Advanced Capabilities
-
-- 🧠 **Contextual Understanding**: Vector embeddings + semantic search
-- 📊 **Analytics**: Word frequencies, document stats
-- 🔍 **Source Highlighting**: Shows exact supporting text
-- 📈 **Confidence Scoring**: Rates answers by confidence
-- 💾 **Conversation Memory**: Retains user chat history
-- 🎨 **Modern UI**: Responsive and styled Streamlit app
+### Advanced Features
+- 🧠 Semantic Search using FAISS
+- 📊 Document Analytics: word frequency & stats
+- 🔍 Source Highlighting for answers
+- 📈 Confidence Scoring
+- 💾 Conversation Memory
+- 🎨 Streamlit UI with animations
 
 ---
 
 ## 🏗️ Architecture
 
-**System Flow**:  
-Document Upload → Text Extraction → Embedding → Gemini AI → Answer → Streamlit UI
+**Flow:** Document Upload → Text Extraction → Vector Embedding → Gemini LLM → Streamlit UI
 
-**Components**:
-
-- `document_processor.py` – File extraction and cleanup
-- `ai_assistant.py` – Core reasoning using Gemini + LangChain
-- `utils.py` – Helper utilities
-- `app.py` – Streamlit frontend
+**Key Components:**
+- `backend/` – FastAPI backend and core logic
+  - `main.py` – FastAPI server
+  - `config.py` – Environment configuration
+  - `document_processor.py` – PDF/TXT handling
+  - `llm_service.py` – Gemini API logic
+  - `api_models.py` – Request/response models
+- `fronted/` – Streamlit frontend
+  - `app.py` – Main UI logic
 
 ---
 
-## 🚀 Setup Instructions
+## ⚙️ Setup Instructions
 
 ### Prerequisites
-
 - Python 3.8+
 - Google Gemini API Key
 - Git
 
-### Installation
-
+### 1. Clone the repository
 ```bash
 git clone https://github.com/TechyKunj/Smart-Research-Assistant.git
 cd Smart-Research-Assistant
-
-python -m venv venv
-# Windows
-venv\Scripts\activate
-# macOS/Linux
-source venv/bin/activate
-
-pip install -r requirements.txt
-
-# Create .env file with:
-GEMINI_API_KEY=your_api_key_here
 ```
 
-### Run App
-
+### 2. Create and activate virtual environment
 ```bash
-streamlit run app.py
-uvicorn backend.main:app --reload
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
 ```
 
-Visit [http://localhost:8501](http://localhost:8501)
+### 3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Add your API key
+Create a file named `.env` in the root and add:
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
+```
 
 ---
 
-## 📁 Project Structure
+## 🚀 Running the App
+
+### Start FastAPI backend
+```bash
+cd backend
+uvicorn main:app --reload
+```
+
+### Start Streamlit frontend
+```bash
+cd fronted
+streamlit run app.py
+```
+
+Access the app at: [http://localhost:8501](http://localhost:8501)
+
+---
+
+## 📁 Directory Overview
 
 ```
 Smart-Research-Assistant/
-├── app.py
-├── src/
+├── .venv/
+├── backend/
+│   ├── api_models.py
+│   ├── config.py
 │   ├── document_processor.py
-│   ├── ai_assistant.py
-│   ├── utils.py
-├── .streamlit/
-│   └── config.toml
-├── requirements.txt
+│   ├── llm_service.py
+│   └── main.py
+├── fronted/
+│   └── app.py
 ├── .env.example
+├── .gitignore
+├── requirements.txt
 └── README.md
 ```
 
 ---
 
-## 🎯 Use Cases
+## 🛡️ Security & Privacy
 
-- **Academic**: Summarize research papers, test comprehension
-- **Business**: Extract insights from reports, generate training materials
-- **Legal**: Summarize contracts, identify clauses
-
----
-
-## 🛠️ Developer Guide
-
-- Modify AI behavior in `src/ai_assistant.py`
-- Customize frontend in `app.py`
-- Run tests:
-```bash
-pip install pytest
-pytest tests/
-```
-
----
-
-## 🔒 Security & Privacy
-
-- All processing is local (no file storage)
-- API key is stored in `.env`
-- HTTPS-secured communication with Gemini
+- No permanent document storage
+- `.env` file is ignored from version control
+- API communication is HTTPS-secured
 
 ---
 
@@ -130,8 +129,8 @@ MIT License
 
 ## 🙌 Acknowledgements
 
-- Google AI Studio (Gemini)
-- LangChain
-- Streamlit
+- [Google Gemini API](https://ai.google.dev)
+- [LangChain](https://www.langchain.com/)
+- [Streamlit](https://streamlit.io/)
 
 Made with ❤️ by [@TechyKunj](https://github.com/TechyKunj)
